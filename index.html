@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for my baby❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff9ecb,#ffd6eb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:750px;
+    z-index:2;
+}
+
+.page{
+    display:none;
+    animation:fade .8s;
+}
+
+.page.active{
+    display:block;
+}
+
+h1{
+    color:white;
+    margin-bottom:20px;
+    font-size:2.8rem;
+}
+
+p{
+    color:white;
+    font-size:1.2rem;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+button{
+    border:none;
+    padding:15px 30px;
+    border-radius:999px;
+    cursor:pointer;
+    margin:10px;
+    font-size:1rem;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.next{
+    background:white;
+    color:#ff4f8b;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(8px);
+    padding:20px;
+    border-radius:15px;
+    color:white;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    font-size:25px;
+    animation:float 8s linear infinite;
+    opacity:.6;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#evetBtn{
+    background:#ffffff;
+    color:#ff4f8b;
+    font-weight:bold;
+}
+
+#yokBtn{
+    background:#ff7aa8;
+    color:white;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+<div class="page active" id="page1">
+
+<h1>slm ❤️</h1>
+
+<p>
+Bu siteyi senin icin yaptim.
+minik bi sey gostercem.
+</p>
+
+<button class="next" onclick="nextPage(2)">
+Devam Et →
+</button>
+
+</div>
+
+<div class="page" id="page2">
+
+<h1>Bir İtirafım Var...</h1>
+
+<p>
+Seni kaybedince ne kadar ozel biri oldugunu tekrar farkettim.
+Bu yuzden bunu normal bi mesajla demek istemedim.
+</p>
+
+<button class="next" onclick="nextPage(3)">
+Devam Et →
+</button>
+
+</div>
+
+<div class="page" id="page3">
+
+<h1>Sende Sevdiğim Şeyler ✨</h1>
+
+<div class="cards">
+
+<div class="card">
+😊 eridiğim gulusun
+</div>
+
+<div class="card">
+💬 tatlis sohbetlerin
+</div>
+
+<div class="card">
+🌸 enerjin
+</div>
+
+<div class="card">
+⭐ kendinden başka biri olmaman
+</div>
+
+</div>
+
+<br>
+
+<button class="next" onclick="nextPage(4)">
+Devam Et →
+</button>
+
+</div>
+
+<div class="page" id="page4">
+
+<h1>Aslında...</h1>
+
+<p>
+Bu sitenin tek bir amaci vardi.
+</p>
+
+<button class="next" onclick="nextPage(5)">
+Öğrenmek İstiyorum ❤️
+</button>
+
+</div>
+
+<div class="page" id="page5">
+
+<h1>I like you ❤️</h1>
+
+<p>
+Bunu söylemenin biraz farklı ve özel bir yolunu bulmak istedim.
+
+<br><br>
+
+O yüzden bu siteyi yaptım.
+
+<br><br>
+
+Peki,
+Sen ne düşünüyorsun?
+</p>
+
+<button id="evetBtn" onclick="evet()">
+EVET ❤️
+</button>
+
+<button id="yokBtn" onmouseover="kac()">
+yook. 
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function nextPage(page){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById("page"+page).classList.add("active");
+
+}
+
+function evet(){
+
+document.getElementById("page5").innerHTML=`
+
+<h1>ISTE BUUUUAAAAAA ❤️🎉</h1>
+
+<p>
+
+this is the best day ever. 😭💜
+
+<br><br>
+
+i am the happiest person alive.
+
+</p>
+
+`;
+
+}
+
+function kac(){
+
+let btn=document.getElementById("yokBtn");
+
+btn.style.position="absolute";
+
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+
+}
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+heart.style.fontSize=
+(Math.random()*20+15)+"px";
+
+document.getElementById("hearts")
+.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
